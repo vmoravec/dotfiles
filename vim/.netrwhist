@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/vmoravec/code/slms/slms/scripts'
+let g:netrw_dirhist_2='/home/vmoravec/code/slms/slms'
+let g:netrw_dirhist_3='/home/vmoravec/code/slms/slms/admin'
+let g:netrw_dirhist_4='/home/vmoravec/code/slms/slms/admin/test'
+let g:netrw_dirhist_5='/home/vmoravec/code/slms/yast/webyast-slms'
+let g:netrw_dirhist_6='/home/vmoravec/code/webyast/plugins/users'
+let g:netrw_dirhist_7='/home/vmoravec/code/webyast/plugins/network/app/models'
+let g:netrw_dirhist_8='/home/vmoravec/code/webyast/plugins/network'
+let g:netrw_dirhist_9='/home/vmoravec/code/minas'
