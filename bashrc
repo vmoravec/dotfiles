@@ -49,7 +49,7 @@ parse_git_branch() {
 PS1='\[\033[01;37m\]\w\[\033[00;33m\]$(parse_git_branch)\[\033[00m\] \n∴ '
 
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # set the DISPLAY var if not set
 # if [ ! $DISPLAY ] ; then
@@ -57,4 +57,5 @@ PS1='\[\033[01;37m\]\w\[\033[00;33m\]$(parse_git_branch)\[\033[00m\] \n∴ '
 #         export DISPLAY=`echo $SSH_CLIENT|cut -f1 -d\ `:0.0
 #     fi
 # fi
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
