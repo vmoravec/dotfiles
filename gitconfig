@@ -1,0 +1,17 @@
+[alias]
+  sta = status
+  bra = branch
+  com = commit
+  unstage = reset HEAD
+  co = checkout
+[color]
+  status = auto
+  branch = auto
+[core]
+  exludesfile = /home/vlado/.gitignore
+[user]
+  name = Vladimir Moravec
+  email = vmoravec@suse.com
+
+[push]
+	default = tracking
