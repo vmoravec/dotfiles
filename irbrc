@@ -2,7 +2,7 @@ module IrbRc
   module Helpers
     module Object
       def methods_
-        self.methods.sort - Object.methods
+        (self.methods - Object.methods).sort
       end
     end
   end
