@@ -1,0 +1,46 @@
+#! /usr/bin/env ruby
+
+require 'pathname'
+require 'set'
+require 'fileutils'
+
+def report message
+  puts ">>>>>  #{message}"
+  yield if block_given?
+end
+
+def time_stamp_now
+  Time.now.strftime "%Y-%m-%d_%H-%M"
+end
+
+source_files = Dir.glob( "**/files/*").inject({}) do |list, file|
+  file_name = file.match(/\/(.+)/)[1]
+  list[file_name] = ".#{file_name}"
+  list
+end
+
+path_to_files = Pathname.new("File.dirname(__FILE__)/../files/").expand_path
+backup_folder = Pathname.new "#{Dir.home}/.dotfiles"
+report "Going to update the dotfiles."
+report "Backup goes into #{backup_folder}"
+unless File.exists? backup_folder
+  report "Creating backup folder now..." do 
+    Dir.mkdir backup_folder
+  end
+  report "# created at #{time_stamp_now}"
+end
+report "List of files and folders in #{Dir.home} to be changed:"
+files = {:new => {}, :backup => {}}
+source_files.each_pair do |new, original|
+  File.exists?(File.join Dir.home, original) ? files[:backup][new]=original : files[:new][new]=original
+end
+
+destination = Pathname.new(Dir.home).expand_path
+report "Putting new files into their destination, which is #{destination}"
+files[:new].each_pair do |orig, name_dest| 
+  FileUtils.copy_file File.join(path_to_files, orig), File.join(destination, name_dest)
+end
+#files[:backup].each {|file| puts file } #FileUtils.copy_entry file, destination }
+
+
+
