@@ -46,7 +46,7 @@ parse_git_branch() {
   }
 
 # modify the prompt
-PS1='\[\033[01;37m\]\w\[\033[00;33m\]$(parse_git_branch)\[\033[00m\] \n∴ '
+PS1='\n\[\033[01;37m\]\w\[\033[00;33m\]$(parse_git_branch)\[\033[00m\] \n∴ '
 
 # Load RVM into a shell session *as a function*
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
