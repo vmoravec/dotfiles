@@ -25,6 +25,13 @@
 #export PILOTPORT=/dev/pilot
 #export PILOTRATE=115200
 
+# set the DISPLAY var if not set
+# if [ ! $DISPLAY ] ; then
+#     if [ "$SSH_CLIENT" ] ; then
+#         export DISPLAY=`echo $SSH_CLIENT|cut -f1 -d\ `:0.0
+#     fi
+# fi
+
 test -s ~/.alias && . ~/.alias || true
 
 alias treet="tree -L 3"
@@ -46,16 +53,7 @@ parse_git_branch() {
   }
 
 # modify the prompt
-PS1='\n\[\033[01;37m\]\w\[\033[00;33m\]$(parse_git_branch)\[\033[00m\] \n∴ '
+PS1='\n\[\033[01;37m\]\w\[\033[00;33m\]$(parse_git_branch)\[\033[00m\] \n天 '
 
 # Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# set the DISPLAY var if not set
-# if [ ! $DISPLAY ] ; then
-#     if [ "$SSH_CLIENT" ] ; then
-#         export DISPLAY=`echo $SSH_CLIENT|cut -f1 -d\ `:0.0
-#     fi
-# fi
-# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
